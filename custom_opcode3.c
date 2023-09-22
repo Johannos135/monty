@@ -10,11 +10,11 @@
 void _div(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *valeur = NULL;
 
-	aux = *head_s;
+	valeur = *head_s;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; valeur != NULL; valeur = valeur->next, m++)
 		;
 
 	if (m < 2)
@@ -31,8 +31,8 @@ void _div(stack_t **head_s, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*head_s)->next;
-	aux->n /= (*head_s)->n;
+	valeur = (*head_s)->next;
+	valeur->n /= (*head_s)->n;
 	_pop(head_s, cline);
 }
 
@@ -46,11 +46,11 @@ void _div(stack_t **head_s, unsigned int cline)
 void _mul(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *valeur = NULL;
 
-	aux = *head_s;
+	valeur = *head_s;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; valeur != NULL; valeur = valeur->next, m++)
 		;
 
 	if (m < 2)
@@ -60,8 +60,8 @@ void _mul(stack_t **head_s, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*head_s)->next;
-	aux->n *= (*head_s)->n;
+	valeur = (*head_s)->next;
+	valeur->n *= (*head_s)->n;
 	_pop(head_s, cline);
 }
 
@@ -76,11 +76,11 @@ void _mul(stack_t **head_s, unsigned int cline)
 void _mod(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *valeur = NULL;
 
-	aux = *head_s;
+	valeur = *head_s;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; valeur != NULL; valeur = valeur->next, m++)
 		;
 
 	if (m < 2)
@@ -97,8 +97,8 @@ void _mod(stack_t **head_s, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*head_s)->next;
-	aux->n %= (*head_s)->n;
+	valeur = (*head_s)->next;
+	valeur->n %= (*head_s)->n;
 	_pop(head_s, cline);
 }
 /**
@@ -134,15 +134,15 @@ void _pchar(stack_t **head_s, unsigned int cline)
  */
 void _pstr(stack_t **head_s, unsigned int cline)
 {
-	stack_t *aux;
+	stack_t *valeur;
 	(void)cline;
 
-	aux = *head_s;
+	valeur = *head_s;
 
-	while (aux && aux->n > 0 && aux->n < 128)
+	while (valeur && valeur->n > 0 && valeur->n < 128)
 	{
-		printf("%c", aux->n);
-		aux = aux->next;
+		printf("%c", valeur->n);
+		valeur = valeur->next;
 	}
 
 	printf("\n");

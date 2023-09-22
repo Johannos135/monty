@@ -40,11 +40,11 @@ void _stack(stack_t **head_s, unsigned int cline)
 void _add(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *valeur = NULL;
 
-	aux = *head_s;
+	valeur = *head_s;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; valeur != NULL; valeur = valeur->next, m++)
 		;
 
 	if (m < 2)
@@ -54,8 +54,8 @@ void _add(stack_t **head_s, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*head_s)->next;
-	aux->n += (*head_s)->n;
+	valeur = (*head_s)->next;
+	valeur->n += (*head_s)->n;
 	_pop(head_s, cline);
 }
 
@@ -82,11 +82,11 @@ void _nop(stack_t **head_s, unsigned int cline)
 void _sub(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *valeur = NULL;
 
-	aux = *head_s;
+	valeur = *head_s;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; valeur != NULL; valeur = valeur->next, m++)
 		;
 
 	if (m < 2)
@@ -96,7 +96,7 @@ void _sub(stack_t **head_s, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*head_s)->next;
-	aux->n -= (*head_s)->n;
+	valeur = (*head_s)->next;
+	valeur->n -= (*head_s)->n;
 	_pop(head_s, cline);
 }

@@ -8,7 +8,7 @@
  */
 stack_t *add_at_end(stack_t **head, const int n)
 {
-	stack_t *temp, *aux;
+	stack_t *temp, *valeur;
 
 	if (head == NULL)
 		return (NULL);
@@ -28,13 +28,13 @@ stack_t *add_at_end(stack_t **head, const int n)
 		*head = temp;
 		return (*head);
 	}
-	aux = *head;
-	while (aux->next)
-		aux = aux->next;
-	temp->next = aux->next;
-	temp->prev = aux;
-	aux->next = temp;
-	return (aux->next);
+	valeur = *head;
+	while (valeur->next)
+		valeur = valeur->next;
+	temp->next = valeur->next;
+	temp->prev = valeur;
+	valeur->next = temp;
+	return (valeur->next);
 }
 
 /**
