@@ -3,13 +3,13 @@
 /**
  * _queue - sets the format of the data to a queue (FIFO)
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _queue(stack_t **doubly, unsigned int cline)
+void _queue(stack_t **head_s, unsigned int cline)
 {
-	(void)doubly;
+	(void)head_s;
 	(void)cline;
 
 	gl_var.lifo = 0;
@@ -18,13 +18,13 @@ void _queue(stack_t **doubly, unsigned int cline)
 /**
  * _stack - sets the format fo the data to a stack (LIFO)
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _stack(stack_t **doubly, unsigned int cline)
+void _stack(stack_t **head_s, unsigned int cline)
 {
-	(void)doubly;
+	(void)head_s;
 	(void)cline;
 
 	gl_var.lifo = 1;
@@ -33,16 +33,16 @@ void _stack(stack_t **doubly, unsigned int cline)
 /**
  * _add - adds the top two elements of the stack
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _add(stack_t **doubly, unsigned int cline)
+void _add(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *head_s;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -54,37 +54,37 @@ void _add(stack_t **doubly, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n += (*doubly)->n;
-	_pop(doubly, cline);
+	aux = (*head_s)->next;
+	aux->n += (*head_s)->n;
+	_pop(head_s, cline);
 }
 
 /**
  * _nop - doesn't do anythinhg
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _nop(stack_t **doubly, unsigned int cline)
+void _nop(stack_t **head_s, unsigned int cline)
 {
-	(void)doubly;
+	(void)head_s;
 	(void)cline;
 }
 
 /**
  * _sub - subtracts the top element to the second top element of the stack
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _sub(stack_t **doubly, unsigned int cline)
+void _sub(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *head_s;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -96,7 +96,7 @@ void _sub(stack_t **doubly, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n -= (*doubly)->n;
-	_pop(doubly, cline);
+	aux = (*head_s)->next;
+	aux->n -= (*head_s)->n;
+	_pop(head_s, cline);
 }

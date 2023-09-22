@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * _push - pushes an element to the stack
+ * _push - add an element to the stack
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number
  * Return: no return
  */
-void _push(stack_t **doubly, unsigned int cline)
+void _push(stack_t **head_s, unsigned int cline)
 {
 	int n, j;
 
@@ -33,24 +33,24 @@ void _push(stack_t **doubly, unsigned int cline)
 	n = atoi(gl_var.arg);
 
 	if (gl_var.lifo == 1)
-		add_node(doubly, n);
+		add_node(head_s, n);
 	else
-		add_at_end(doubly, n);
+		add_at_end(head_s, n);
 }
 
 /**
  * _pall - prints all values on the stack
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line numbers
  * Return: no return
  */
-void _pall(stack_t **doubly, unsigned int cline)
+void _pall(stack_t **head_s, unsigned int cline)
 {
 	stack_t *aux;
 	(void)cline;
 
-	aux = *doubly;
+	aux = *head_s;
 
 	while (aux)
 	{
@@ -62,15 +62,15 @@ void _pall(stack_t **doubly, unsigned int cline)
 /**
  * _pint - prints the value at the top of the stack
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number
  * Return: no return
  */
-void _pint(stack_t **doubly, unsigned int cline)
+void _pint(stack_t **head_s, unsigned int cline)
 {
 	(void)cline;
 
-	if (*doubly == NULL)
+	if (*head_s == NULL)
 	{
 		dprintf(2, "L%u: ", cline);
 		dprintf(2, "can't pint, stack empty\n");
@@ -78,44 +78,44 @@ void _pint(stack_t **doubly, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*doubly)->n);
+	printf("%d\n", (*head_s)->n);
 }
 
 /**
  * _pop - removes the top element of the stack
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number
  * Return: no return
  */
-void _pop(stack_t **doubly, unsigned int cline)
+void _pop(stack_t **head_s, unsigned int cline)
 {
 	stack_t *aux;
 
-	if (doubly == NULL || *doubly == NULL)
+	if (head_s == NULL || *head_s == NULL)
 	{
 		dprintf(2, "L%u: can't pop an empty stack\n", cline);
 		free_gl_var();
 		exit(EXIT_FAILURE);
 	}
-	aux = *doubly;
-	*doubly = (*doubly)->next;
+	aux = *head_s;
+	*head_s = (*head_s)->next;
 	free(aux);
 }
 
 /**
  * _swap - swaps the top two elements of the stack
  *
- * @doubly: head of the linked list
+ * @head_s: head of the linked list
  * @cline: line number
  * Return: no return
  */
-void _swap(stack_t **doubly, unsigned int cline)
+void _swap(stack_t **head_s, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *head_s;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -127,10 +127,10 @@ void _swap(stack_t **doubly, unsigned int cline)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = *doubly;
-	*doubly = (*doubly)->next;
-	aux->next = (*doubly)->next;
-	aux->prev = *doubly;
-	(*doubly)->next = aux;
-	(*doubly)->prev = NULL;
+	aux = *head_s;
+	*head_s = (*head_s)->next;
+	aux->next = (*head_s)->next;
+	aux->prev = *head_s;
+	(*head_s)->next = aux;
+	(*head_s)->prev = NULL;
 }

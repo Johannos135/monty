@@ -10,12 +10,12 @@
 #include <ctype.h>
 
 /**
- * struct stack_s - doubly linked list representation of a stack (or queue)
+ * struct stack_s - head_s linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
  *
- * Description: doubly linked list node structure
+ * Description: head_s linked list node structure
  * for stack, queues, LIFO, FIFO  project
  */
 typedef struct stack_s
@@ -30,11 +30,11 @@ typedef struct stack_s
  * @lifo: is stack or queue
  * @cont: current line
  * @arg: second parameter inside the current line
- * @head: doubly linked list
+ * @head: head_s linked list
  * @filed: file descriptor
  * @buffer: input text
  *
- * Description: doubly linked list node structure
+ * Description: head_s linked list node structure
  * for stack, queues, LIFO, FIFO  project
  */
 typedef struct globals
@@ -65,21 +65,21 @@ extern global_t gl_var;
 
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
-void _pint(stack_t **doubly, unsigned int cline);
-void _pop(stack_t **doubly, unsigned int cline);
-void _swap(stack_t **doubly, unsigned int cline);
-void _queue(stack_t **doubly, unsigned int cline);
-void _stack(stack_t **doubly, unsigned int cline);
-void _add(stack_t **doubly, unsigned int cline);
-void _nop(stack_t **doubly, unsigned int cline);
-void _sub(stack_t **doubly, unsigned int cline);
-void _div(stack_t **doubly, unsigned int cline);
-void _mul(stack_t **doubly, unsigned int cline);
-void _mod(stack_t **doubly, unsigned int cline);
-void _pchar(stack_t **doubly, unsigned int cline);
-void _pstr(stack_t **doubly, unsigned int cline);
-void _rotl(stack_t **doubly, unsigned int cline);
-void _rotr(stack_t **doubly, unsigned int cline);
+void _pint(stack_t **head_s, unsigned int cline);
+void _pop(stack_t **head_s, unsigned int cline);
+void _swap(stack_t **head_s, unsigned int cline);
+void _queue(stack_t **head_s, unsigned int cline);
+void _stack(stack_t **head_s, unsigned int cline);
+void _add(stack_t **head_s, unsigned int cline);
+void _nop(stack_t **head_s, unsigned int cline);
+void _sub(stack_t **head_s, unsigned int cline);
+void _div(stack_t **head_s, unsigned int cline);
+void _mul(stack_t **head_s, unsigned int cline);
+void _mod(stack_t **head_s, unsigned int cline);
+void _pchar(stack_t **head_s, unsigned int cline);
+void _pstr(stack_t **head_s, unsigned int cline);
+void _rotl(stack_t **head_s, unsigned int cline);
+void _rotr(stack_t **head_s, unsigned int cline);
 
 
 void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
