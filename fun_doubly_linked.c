@@ -73,12 +73,12 @@ stack_t *add_node(stack_t **head, const int n)
 }
 
 /**
- * free_dlistint - frees the head_s linked list
+ * free_up_list - frees the head_s linked list
  *
  * @head: head of the list
  * Return: no return
  */
-void free_dlistint(stack_t *head)
+void free_up_list(stack_t *head)
 {
 	stack_t *tmp;
 

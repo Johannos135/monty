@@ -25,8 +25,24 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+
 /**
- * struct globals - global structure to use in the functions
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO  project
+ */
+typedef struct instruction_s
+{
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+
+
+/**
+ * struct globals - contains all the useful stuff
  * @lifo: is stack or queue
  * @cont: current line
  * @arg: second parameter inside the current line
@@ -46,20 +62,6 @@ typedef struct globals
 	FILE *filed;
 	char *buffer;
 } global_t;
-
-/**
- * struct instruction_s - opcode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO  project
- */
-typedef struct instruction_s
-{
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;
 
 extern global_t gl_var;
 
@@ -94,7 +96,7 @@ int _strcmp(char *s1, char *s2);
 
 stack_t *add_at_end(stack_t **head, const int n);
 stack_t *add_node(stack_t **head, const int n);
-void free_dlistint(stack_t *head);
+void free_up_list(stack_t *head);
 
 
 void free_gl_var(void);

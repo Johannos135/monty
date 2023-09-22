@@ -7,7 +7,7 @@ global_t gl_var;
  */
 void free_gl_var(void)
 {
-	free_dlistint(gl_var.head);
+	free_up_list(gl_var.head);
 	free(gl_var.buffer);
 	fclose(gl_var.filed);
 }
