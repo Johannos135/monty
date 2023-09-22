@@ -1,36 +1,34 @@
 #include "monty.h"
 /**
- * _calloc - concatenate tw strings specially
- * @nmemb: number of elements
+ * _calloc - concatenates allocated string
+ * @vch_v: number of elements
  * @size: type of elements
- * Return: nothing
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+void *_calloc(unsigned int vch_v, unsigned int size)
 {
 	void *p = NULL;
 	unsigned int i;
 
-	if (nmemb == 0 || size == 0)
+	if (vch_v == 0 || size == 0)
 	{
 		return (NULL);
 	}
-	p = malloc(nmemb * size);
+	p = malloc(vch_v * size);
 	if (p == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < (nmemb * size); i++)
+	for (i = 0; i < (vch_v * size); i++)
 	{
 		*((char *)(p) + i) = 0;
 	}
 	return (p);
 }
 /**
- * _realloc - change the size and copy the content
+ * _realloc - reallocate the memory
  * @ptr: malloc pointer to reallocate
  * @old_size: old number of bytes
  * @new_size: new number of Bytes
- * Return: nothing
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {

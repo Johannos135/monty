@@ -90,7 +90,7 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
 int _switch_str(char *s, char c);
 char *fun_strtok(char *s, char *d);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-void *_calloc(unsigned int nmemb, unsigned int size);
+void *_calloc(unsigned int vch_v, unsigned int size);
 int _strcmp(char *s1, char *s2);
 
 
